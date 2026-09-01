@@ -46,11 +46,14 @@ export default function IndexPage() {
             delay={0.4}
             className="font-heading text-base sm:text-xl md:text-xl lg:text-2xl"
           >
-            {siteConfig.course}   {siteConfig.semester}
+            {siteConfig.course} — {siteConfig.semester}
           </AnimatedText>
           <div className="mt-4 max-w-[42rem] text-center">
-            <p className="leading-normal text-muted-foreground text-sm sm:text-base">
+            {/* <p className="leading-normal text-muted-foreground text-sm sm:text-base">
               Crafting intuitive digital experiences bridging the gap between educational needs and industrial standards.
+            </p> */}
+            <p className="leading-normal text-muted-foreground text-sm sm:text-base">
+              Menciptakan pengalaman digital intuitif yang menjembatani kesenjangan antara kebutuhan pendidikan dan standar industri.
             </p>
           </div>
 
@@ -60,7 +63,7 @@ export default function IndexPage() {
                 href="/portfolio/pendidikan"
                 className={cn(buttonVariants({ size: "lg" }))}
               >
-                Explore Education
+                 Jelajahi Pendidikan
               </Link>
             </AnimatedText>
             <AnimatedText delay={0.8}>
@@ -70,7 +73,7 @@ export default function IndexPage() {
                   buttonVariants({ variant: "outline", size: "lg" })
                 )}
               >
-                Explore Industry
+                 Jelajahi Industri
               </Link>
             </AnimatedText>
           </div>
@@ -91,12 +94,19 @@ export default function IndexPage() {
           >
             Industry Sector
           </AnimatedText>
-          <AnimatedText
+          {/* <AnimatedText
             as="p"
             delay={0.2}
             className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
           >
             Creating scalable and conversion-optimized interfaces for modern businesses.
+          </AnimatedText> */}
+          <AnimatedText
+            as="p"
+            delay={0.2}
+            className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
+          >
+            Case study UI/UX di bidang industri solusi desain untuk kebutuhan bisnis dan teknologi.
           </AnimatedText>
         </div>
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2">
@@ -107,7 +117,7 @@ export default function IndexPage() {
             >
               <div className="mb-3 h-32 w-full rounded-lg bg-gradient-to-br from-violet-500/20 via-purple-500/10 to-fuchsia-500/20 dark:from-violet-500/10 dark:via-purple-500/5 dark:to-fuchsia-500/10 flex items-center justify-center">
                 <span className="text-muted-foreground/30 text-sm font-medium">
-                  {study.title} Overview
+                  {study.title} In Progress
                 </span>
               </div>
               <h3 className="font-heading text-base font-semibold">
@@ -127,7 +137,7 @@ export default function IndexPage() {
               "rounded-xl"
             )}
           >
-            View Full Case Studies
+            Lihat Studi Kasus Lengkap
           </Link>
         </AnimatedText>
       </AnimatedSection>
@@ -143,12 +153,19 @@ export default function IndexPage() {
           >
             Education Sector
           </AnimatedText>
-          <AnimatedText
+          {/* <AnimatedText
             as="p"
             delay={0.2}
             className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
           >
             Designing accessible and engaging platforms to elevate learning experiences.
+          </AnimatedText> */}
+          <AnimatedText
+            as="p"
+            delay={0.2}
+            className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
+          >
+            Case study UI/UX di bidang pendidikan merancang pengalaman belajar yang lebih baik.
           </AnimatedText>
         </div>
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2">
@@ -159,7 +176,7 @@ export default function IndexPage() {
             >
               <div className="mb-3 h-32 w-full rounded-lg bg-gradient-to-br from-emerald-500/20 via-teal-500/10 to-cyan-500/20 dark:from-emerald-500/10 dark:via-teal-500/5 dark:to-cyan-500/10 flex items-center justify-center">
                 <span className="text-muted-foreground/30 text-sm font-medium">
-                  {study.title} Overview
+                  {study.title} In Progress
                 </span>
               </div>
               <h3 className="font-heading text-base font-semibold">
@@ -179,7 +196,7 @@ export default function IndexPage() {
               "rounded-xl"
             )}
           >
-            View Full Case Studies
+            Lihat Studi Kasus Lengkap
           </Link>
         </AnimatedText>
       </AnimatedSection>
@@ -195,12 +212,19 @@ export default function IndexPage() {
           >
             Behind the Designs
           </AnimatedText>
-          <AnimatedText
+          {/* <AnimatedText
             as="p"
             delay={0.2}
             className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
           >
             Meet the researchers, strategists, and designers driving these experiences.
+          </AnimatedText> */}
+          <AnimatedText
+            as="p"
+            delay={0.2}
+            className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
+          >
+            Kenali para desainer yang menggerakkan pengalaman-pengalaman ini.
           </AnimatedText>
         </div>
         <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
@@ -239,7 +263,7 @@ export default function IndexPage() {
               "rounded-xl"
             )}
           >
-            Meet the Team
+            Kenali Tim Kami
           </Link>
         </AnimatedText>
       </AnimatedSection>

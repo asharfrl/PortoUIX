@@ -14,9 +14,13 @@ export const caseStudies: CaseStudy[] = [
   // === ASPEK PENDIDIKAN ===
   {
     id: "edu-1",
-    title: "Redesain Sistem Informasi Akademik Kampus",
+    // title: "Redesain Sistem Informasi Akademik Kampus",
+    // description:
+    //   "Merancang ulang antarmuka SIAKAD agar lebih intuitif, aksesibel, dan efisien untuk mahasiswa dan dosen. Fokus pada penyederhanaan alur pengisian KRS dan akses informasi akademik.",
+    // category: "pendidikan",
+    title: "",
     description:
-      "Merancang ulang antarmuka SIAKAD agar lebih intuitif, aksesibel, dan efisien untuk mahasiswa dan dosen. Fokus pada penyederhanaan alur pengisian KRS dan akses informasi akademik.",
+      "",
     category: "pendidikan",
     tags: ["User Research", "Wireframing", "Prototyping", "Usability Testing"],
     thumbnail: "/portfolio/placeholder-edu.png",
@@ -66,9 +70,13 @@ export const caseStudies: CaseStudy[] = [
   // === ASPEK INDUSTRI ===
   {
     id: "ind-1",
-    title: "Dashboard SaaS B2B Analytics",
+    // title: "Dashboard SaaS B2B Analytics",
+    // description:
+    //   "Merancang dashboard analitik untuk platform SaaS B2B dengan visualisasi data yang jelas, filtering yang powerful, dan pengalaman onboarding yang smooth untuk pengguna bisnis.",
+    // category: "industri",
+    title: "",
     description:
-      "Merancang dashboard analitik untuk platform SaaS B2B dengan visualisasi data yang jelas, filtering yang powerful, dan pengalaman onboarding yang smooth untuk pengguna bisnis.",
+      "",
     category: "industri",
     tags: [
       "Dashboard Design",

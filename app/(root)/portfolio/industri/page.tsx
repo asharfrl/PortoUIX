@@ -24,7 +24,7 @@ export default function PortfolioIndustriPage() {
         <PortfolioHeader
           title={pagesConfig.portfolioIndustri.title}
           description={pagesConfig.portfolioIndustri.description}
-          // icon="🏢"
+          icon=""
         />
 
         {/* Case Studies Grid */}

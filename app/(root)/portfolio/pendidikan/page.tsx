@@ -24,7 +24,7 @@ export default function PortfolioPendidikanPage() {
         <PortfolioHeader
           title={pagesConfig.portfolioPendidikan.title}
           description={pagesConfig.portfolioPendidikan.description}
-          // icon="🎓"
+          icon=""
         />
 
         {/* Case Studies Grid */}

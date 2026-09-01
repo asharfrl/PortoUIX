@@ -1,7 +1,7 @@
 ---
 title: "AEO vs SEO: How I Ranked #1 on ChatGPT for a Next.js Template"
 date: "2024-11-20"
-description: "Answer Engine Optimization (AEO) is the new frontier. Here's the exact strategy I used to get my open-source Next.js portfolio template to rank #1 on ChatGPT search — and what it means for developers building in public."
+description: "Answer Engine Optimization (AEO) is the new frontier. Here's the exact strategy I used to get my open-source Next.js portfolio template to rank #1 on ChatGPT search   and what it means for developers building in public."
 tags: ["SEO", "AEO", "Next.js", "Open Source", "Growth"]
 coverImage: "/projects/portfolio/logo.png"
 featured: true
@@ -9,13 +9,13 @@ featured: true
 
 In late 2024, someone told me that searching "best Next.js portfolio template GitHub" on ChatGPT surfaced my open-source template as the **#1 result**. I hadn't specifically optimized for this. But when I looked back at what I'd done, a clear pattern emerged.
 
-This post is about **Answer Engine Optimization (AEO)** — and how it differs from traditional SEO in ways that matter for developers building in public.
+This post is about **Answer Engine Optimization (AEO)**   and how it differs from traditional SEO in ways that matter for developers building in public.
 
 ## What is AEO?
 
-Traditional SEO optimizes for search engine crawlers — structured data, backlinks, keyword density, page speed.
+Traditional SEO optimizes for search engine crawlers   structured data, backlinks, keyword density, page speed.
 
-AEO optimizes for **AI answer engines** — ChatGPT, Perplexity, Google's AI Overviews — that synthesize answers from multiple sources rather than showing a list of links.
+AEO optimizes for **AI answer engines**   ChatGPT, Perplexity, Google's AI Overviews   that synthesize answers from multiple sources rather than showing a list of links.
 
 The signals are different:
 
@@ -64,7 +64,7 @@ AI models specifically look for structured data to extract factual claims. This 
 
 ### 3. Canonical URLs and Consistent Citations
 
-Every time I shared the project — on X, Reddit, Dev.to, LinkedIn — I used the same canonical URL (`https://github.com/namanbarkiya/minimal-next-portfolio`). Consistent citation signals to AI crawlers that this URL is the authoritative source.
+Every time I shared the project   on X, Reddit, Dev.to, LinkedIn   I used the same canonical URL (`https://github.com/namanbarkiya/minimal-next-portfolio`). Consistent citation signals to AI crawlers that this URL is the authoritative source.
 
 ### 4. Descriptive, Answer-Oriented Pages
 
@@ -108,7 +108,7 @@ For developers building in public, this means:
 - Write clear READMEs that answer "what is this" and "why would I use it"
 - Add structured data (it takes 20 minutes and pays dividends)
 - Be consistent with your canonical URLs across platforms
-- Use specific, descriptive language — not vague marketing copy
+- Use specific, descriptive language   not vague marketing copy
 
 The era of AI answer engines is here. The developers who treat content as a first-class engineering concern will compound their reach significantly.
 

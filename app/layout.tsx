@@ -3,7 +3,6 @@ import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Inter as FontSans } from "next/font/google";
 import localFont from "next/font/local";
-import Script from "next/script";
 
 import { Analytics } from "@/components/common/analytics";
 import { ThemeProvider } from "@/components/common/theme-provider";
@@ -37,49 +36,18 @@ export const metadata = {
   keywords: siteConfig.keywords,
   authors: [
     {
-      name: siteConfig.authorName,
+      name: siteConfig.teamName,
       url: siteConfig.url,
     },
   ],
-  creator: siteConfig.username,
+  creator: siteConfig.teamName,
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "id_ID",
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
-    creator: `@${siteConfig.username}`,
-  },
-  icons: {
-    icon: siteConfig.iconIco,
-    shortcut: siteConfig.logoIcon,
-    apple: siteConfig.logoIcon,
-  },
-  manifest: `${siteConfig.url}/site.webmanifest`,
-  alternates: {
-    canonical: siteConfig.url,
   },
   robots: {
     index: true,
@@ -98,12 +66,9 @@ export const metadata = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID;
-  if (!GA_ID) {
-    throw new Error("Missing Google Analytics ID");
-  }
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="id" suppressHydrationWarning>
       <head />
       <body
         className={cn(
@@ -131,14 +96,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Toaster />
           <ModalProvider />
         </ThemeProvider>
-        <Script
-          src="https://convot.xyz/widget.js"
-          data-token="3vpr28Va7E8luRq8DMOStAr9tefOCVqifQ28fpp6grrKS4zflNRZQjQpmeu4os_2nuLmmh1DOshndiN5O1vvGg"
-          data-api-url="https://api.convot.xyz"
-          strategy="afterInteractive"
-        />
       </body>
-      <GoogleAnalytics gaId={GA_ID} />
+      {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>
   );
 }

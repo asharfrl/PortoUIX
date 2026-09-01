@@ -1,0 +1,39 @@
+import { Metadata } from "next";
+
+import { AnimatedSection } from "@/components/common/animated-section";
+import { ClientPageWrapper } from "@/components/common/client-page-wrapper";
+import CaseStudyCard from "@/components/portfolio/case-study-card";
+import PortfolioHeader from "@/components/portfolio/portfolio-header";
+import { pagesConfig } from "@/config/pages";
+import { industryCaseStudies } from "@/config/portfolio";
+import { siteConfig } from "@/config/site";
+
+export const metadata: Metadata = {
+  title: pagesConfig.portfolioIndustri.metadata.title,
+  description: pagesConfig.portfolioIndustri.metadata.description,
+  alternates: {
+    canonical: `${siteConfig.url}/portfolio/industri`,
+  },
+};
+
+export default function PortfolioIndustriPage() {
+  return (
+    <ClientPageWrapper>
+      <AnimatedSection direction="up" className="container space-y-12 py-10 my-14">
+        {/* Header */}
+        <PortfolioHeader
+          title={pagesConfig.portfolioIndustri.title}
+          description={pagesConfig.portfolioIndustri.description}
+          // icon="🏢"
+        />
+
+        {/* Case Studies Grid */}
+        <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {industryCaseStudies.map((study, index) => (
+            <CaseStudyCard key={study.id} study={study} index={index} />
+          ))}
+        </div>
+      </AnimatedSection>
+    </ClientPageWrapper>
+  );
+}

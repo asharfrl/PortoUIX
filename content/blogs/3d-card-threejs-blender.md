@@ -8,7 +8,7 @@ featured: true
 readingTime: 7
 ---
 
-Ever thought your traditional business card could use a serious upgrade? Well, I sure did! Buckle up because I'm about to take you on a mind-bending journey into the world of creativity, innovation, and 3D magic. Welcome to the behind-the-scenes tale of my **Dynamic Portfolio Card** project — where Three.js meets Blender to transform a plain ol' business card into an interactive work of art. 🚀✨
+Ever thought your traditional business card could use a serious upgrade? Well, I sure did! Buckle up because I'm about to take you on a mind-bending journey into the world of creativity, innovation, and 3D magic. Welcome to the behind-the-scenes tale of my **Dynamic Portfolio Card** project   where Three.js meets Blender to transform a plain ol' business card into an interactive work of art. 🚀✨
 
 **Live Demo:** [card.nbarkiya.xyz](https://card.nbarkiya.xyz) · **Source Code:** [GitHub](https://github.com/namanbarkiya/3d-portfolio-card)
 
@@ -18,7 +18,7 @@ Ever thought your traditional business card could use a serious upgrade? Well, I
 
 Here's a step-by-step guide on how to create this project.
 
-### Step 1 — Setting Up the Project
+### Step 1   Setting Up the Project
 
 We'll use [ViteJS](https://vitejs.dev/guide/) with the Vanilla JS template for a fast, modern dev environment:
 
@@ -26,7 +26,7 @@ We'll use [ViteJS](https://vitejs.dev/guide/) with the Vanilla JS template for a
 npm create vite@latest my-3d-card -- --template vanilla
 ```
 
-### Step 2 — Installing Essential Libraries
+### Step 2   Installing Essential Libraries
 
 We need two packages: [gsap](https://www.npmjs.com/package/gsap) for smooth animations and [three](https://www.npmjs.com/package/three) for the 3D engine.
 
@@ -34,7 +34,7 @@ We need two packages: [gsap](https://www.npmjs.com/package/gsap) for smooth anim
 npm i three gsap
 ```
 
-### Step 3 — Creating the HTML Canvas
+### Step 3   Creating the HTML Canvas
 
 Set up your `index.html` file. This is the canvas for the 3D scene and links to our script:
 
@@ -109,7 +109,7 @@ renderer.setPixelRatio(2);
 Before jumping back into the JavaScript, we need the actual 3D model:
 
 1. **Download the blend file** from [Google Drive assets](https://drive.google.com/drive/folders/1PD-ARQADycua4onoDrL_TAS8PtjiBr4-?usp=sharing)
-2. **Customize your card** — use the [Figma template](https://www.figma.com/file/HxFS1r0P6vvxzSMXpipOKk/3D-card-assets?type=design&node-id=0%3A1&mode=design&t=jhsZf7DikFaZknKb-1) to design your own card art
+2. **Customize your card**   use the [Figma template](https://www.figma.com/file/HxFS1r0P6vvxzSMXpipOKk/3D-card-assets?type=design&node-id=0%3A1&mode=design&t=jhsZf7DikFaZknKb-1) to design your own card art
 3. In Blender, **replace `card.png` and `logo.png`** in the Shading section with your files
 4. Adjust dimensions in the **UV Editing Section**
 5. **Export** the model as glTF 2.0 (`.glb`) format
@@ -118,7 +118,7 @@ Before jumping back into the JavaScript, we need the actual 3D model:
 
 ## Loading the Model and Embedding Links
 
-The key idea — we define invisible clickable planes/circles that are positioned precisely over the areas on the card where links should exist.
+The key idea   we define invisible clickable planes/circles that are positioned precisely over the areas on the card where links should exist.
 
 ### Define Link Positions
 
@@ -237,7 +237,7 @@ const loop = () => {
 };
 ```
 
-## Raycasting — Opening Links on Click
+## Raycasting   Opening Links on Click
 
 This is the secret sauce. We use a `THREE.Raycaster` to check if a click intersects with any of the invisible hit meshes, then open the corresponding link:
 
@@ -290,7 +290,7 @@ body {
 
 ## Conclusion
 
-Well folks, that's a wrap! We've gone from a plain business card to a jaw-dropping **3D Portfolio Card with embedded links** — all using the power of Three.js and Blender. The invisible raycasting approach for links is the key insight: you can overlay any clickable geometry on your 3D model without modifying the model itself.
+Well folks, that's a wrap! We've gone from a plain business card to a jaw-dropping **3D Portfolio Card with embedded links**   all using the power of Three.js and Blender. The invisible raycasting approach for links is the key insight: you can overlay any clickable geometry on your 3D model without modifying the model itself.
 
 Grab the assets, customize the card with your own links and branding, and ship something that'll genuinely wow people.
 

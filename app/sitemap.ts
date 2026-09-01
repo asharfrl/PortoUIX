@@ -58,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Blog post pages — each gets its own sitemap entry with correct date
+  // Blog post pages   each gets its own sitemap entry with correct date
   const blogs = getAllBlogsMeta();
   const blogRoutes: MetadataRoute.Sitemap = blogs.map((blog) => ({
     url: `${baseUrl}/blogs/${blog.slug}`,

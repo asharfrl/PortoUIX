@@ -1,16 +1,16 @@
 ---
 title: "Ship Your Backend in 10 Minutes: The Niya FastAPI Template"
 date: "2025-03-01"
-description: "A production-ready FastAPI template with Supabase auth, rate limiting, connection pooling, and clean architecture — built so you never waste another week on backend boilerplate."
+description: "A production-ready FastAPI template with Supabase auth, rate limiting, connection pooling, and clean architecture   built so you never waste another week on backend boilerplate."
 tags: ["FastAPI", "Python", "Supabase", "Backend", "API"]
 coverImage: "/blogs/niya-fastpi.png"
 featured: true
 readingTime: 6
 ---
 
-I wrote the same backend boilerplate five times. Authentication middleware, rate limiting, database connection pooling, structured error responses, CORS configuration, Pydantic models — every new project started with a full week of plumbing before I wrote a single endpoint that mattered.
+I wrote the same backend boilerplate five times. Authentication middleware, rate limiting, database connection pooling, structured error responses, CORS configuration, Pydantic models   every new project started with a full week of plumbing before I wrote a single endpoint that mattered.
 
-So I extracted it into **Niya FastAPI Template** — a production-ready FastAPI starter that gives you everything you need to build scalable backends without the infrastructure setup. Clone it, add your Supabase credentials, and you have a fully authenticated, rate-limited API running in 10 minutes.
+So I extracted it into **Niya FastAPI Template**   a production-ready FastAPI starter that gives you everything you need to build scalable backends without the infrastructure setup. Clone it, add your Supabase credentials, and you have a fully authenticated, rate-limited API running in 10 minutes.
 
 **Repo:** [github.com/namanbarkiya/niya-fastapi-template](https://github.com/namanbarkiya/niya-fastapi-template)
 
@@ -57,9 +57,9 @@ niya-fastapi/
 
 Each layer has one job:
 
-- **Controllers** handle HTTP — parse requests, return responses, set status codes.
-- **Services** contain business logic — validation rules, orchestration, transformations.
-- **Repositories** talk to the database — queries, inserts, transactions.
+- **Controllers** handle HTTP   parse requests, return responses, set status codes.
+- **Services** contain business logic   validation rules, orchestration, transformations.
+- **Repositories** talk to the database   queries, inserts, transactions.
 
 When you need to add a new feature (say, a `/users/profile` endpoint), you create one file per layer. The pattern is the same every time. New developers on your team understand the codebase in 15 minutes.
 
@@ -88,10 +88,10 @@ async def verify_token(request: Request) -> dict:
 
 Key details that matter:
 
-- **HttpOnly cookies** — the token is never accessible from JavaScript (XSS-immune)
-- **Secure flag** — cookies are only sent over HTTPS in production
-- **JWT validation** — expiration, signature verification, and structured error responses
-- **Dependency injection** — the auth middleware integrates with FastAPI's `Depends()` system
+- **HttpOnly cookies**   the token is never accessible from JavaScript (XSS-immune)
+- **Secure flag**   cookies are only sent over HTTPS in production
+- **JWT validation**   expiration, signature verification, and structured error responses
+- **Dependency injection**   the auth middleware integrates with FastAPI's `Depends()` system
 
 ---
 
@@ -123,14 +123,14 @@ These numbers are from a real deployment serving actual traffic. The connection 
 
 ## The Documentation You Wish Every Template Had
 
-Niya ships with comprehensive docs — not just a README:
+Niya ships with comprehensive docs   not just a README:
 
-- **[API Reference](https://github.com/namanbarkiya/niya-fastapi-template/blob/master/docs/API_REFERENCE.md)** — every endpoint, request/response format, auth requirements
-- **[Postman Setup Guide](https://github.com/namanbarkiya/niya-fastapi-template/blob/master/docs/POSTMAN_SETUP_GUIDE.md)** — import and test in 2 minutes
-- **[API Testing Guide](https://github.com/namanbarkiya/niya-fastapi-template/blob/master/docs/API_TESTING_GUIDE.md)** — strategies for unit, integration, and e2e tests
-- **[Quick Reference](https://github.com/namanbarkiya/niya-fastapi-template/blob/master/docs/API_QUICK_REFERENCE.md)** — cheat sheet for common operations
-- **[Architecture Guide](https://github.com/namanbarkiya/niya-fastapi-template/blob/master/ARCHITECTURE.md)** — why the code is structured the way it is
-- **[New Feature Guide](https://github.com/namanbarkiya/niya-fastapi-template/blob/master/NEW_FEATURE_GUIDE.md)** — step-by-step instructions for extending the template
+- **[API Reference](https://github.com/namanbarkiya/niya-fastapi-template/blob/master/docs/API_REFERENCE.md)**   every endpoint, request/response format, auth requirements
+- **[Postman Setup Guide](https://github.com/namanbarkiya/niya-fastapi-template/blob/master/docs/POSTMAN_SETUP_GUIDE.md)**   import and test in 2 minutes
+- **[API Testing Guide](https://github.com/namanbarkiya/niya-fastapi-template/blob/master/docs/API_TESTING_GUIDE.md)**   strategies for unit, integration, and e2e tests
+- **[Quick Reference](https://github.com/namanbarkiya/niya-fastapi-template/blob/master/docs/API_QUICK_REFERENCE.md)**   cheat sheet for common operations
+- **[Architecture Guide](https://github.com/namanbarkiya/niya-fastapi-template/blob/master/ARCHITECTURE.md)**   why the code is structured the way it is
+- **[New Feature Guide](https://github.com/namanbarkiya/niya-fastapi-template/blob/master/NEW_FEATURE_GUIDE.md)**   step-by-step instructions for extending the template
 
 Plus a **ready-to-import Postman collection** with environment variables pre-configured.
 
@@ -158,7 +158,7 @@ cp env.example .env
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-Open `http://localhost:8000/docs` — you'll see your fully documented, authenticated API ready to go.
+Open `http://localhost:8000/docs`   you'll see your fully documented, authenticated API ready to go.
 
 ---
 
@@ -168,9 +168,9 @@ Niya FastAPI is designed to pair perfectly with the [Niya SaaS Template](https:/
 
 - **Frontend**: Next.js 15, Supabase Auth, Zustand, React Query, Magic UI
 - **Backend**: FastAPI, Supabase, rate limiting, clean architecture
-- **Shared auth**: Both use Supabase JWT tokens — single sign-on is built in
+- **Shared auth**: Both use Supabase JWT tokens   single sign-on is built in
 
-Clone both, point them at the same Supabase project, and you have a full-stack SaaS application with auth, dashboard, API, and documentation — all in under 15 minutes.
+Clone both, point them at the same Supabase project, and you have a full-stack SaaS application with auth, dashboard, API, and documentation   all in under 15 minutes.
 
 ---
 

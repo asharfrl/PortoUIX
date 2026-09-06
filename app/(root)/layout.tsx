@@ -10,7 +10,7 @@ interface MarketingLayoutProps {
 export default function MarketingLayout({ children }: MarketingLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="fixed top-0 inset-x-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-sm transition-all duration-200">
         <div className="container flex h-16 items-center justify-between gap-4">
           <MainNav items={routesConfig.mainNav}>
             <div className="flex items-center gap-3">
@@ -22,7 +22,7 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
           </div>
         </div>
       </header>
-      <main className="container flex-1">{children}</main>
+      <main className="container flex-1 pt-16">{children}</main>
       <SiteFooter />
     </div>
   );

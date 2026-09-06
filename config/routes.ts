@@ -1,24 +1,20 @@
 export const routesConfig: any = {
   mainNav: [
     {
-      title: "Home",
-      href: "/",
-    },
-    {
-      title: "Profil Tim",
-      href: "/team",
-    },
-    {
-      title: "Pendidikan",
-      href: "/portfolio/pendidikan",
+      title: "Beranda",
+      href: "#beranda",
     },
     {
       title: "Industri",
-      href: "/portfolio/industri",
+      href: "#industri",
     },
-    // {
-    //   title: "Kontak",
-    //   href: "/contact",
-    // },
+    {
+      title: "Pendidikan",
+      href: "#pendidikan",
+    },
+    {
+      title: "Profil Tim",
+      href: "#tim",
+    },
   ],
 };

@@ -30,7 +30,7 @@ export default function CaseStudyCard({ study, index }: CaseStudyCardProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 * index }}
       whileHover={{ y: -4 }}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-shadow hover:shadow-lg"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-shadow hover:shadow-lg w-full h-full"
     >
       <div
         className={cn(
@@ -73,10 +73,10 @@ export default function CaseStudyCard({ study, index }: CaseStudyCardProps) {
 
       <div className="flex flex-1 flex-col p-6">
         <h3 className="font-heading text-lg font-semibold leading-tight group-hover:text-primary transition-colors">
-          {study.title}
+          {study.title || "Studi Kasus Desain"}
         </h3>
         <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-          {study.description}
+          {study.description || "Eksplorasi antarmuka dan riset pengalaman pengguna untuk kebutuhan produk digital."}
         </p>
 
         <div className="mt-4 flex flex-wrap gap-1.5">

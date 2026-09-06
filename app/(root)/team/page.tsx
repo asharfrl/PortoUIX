@@ -21,7 +21,6 @@ export default function TeamPage() {
     <ClientPageWrapper>
       <AnimatedSection direction="up" className="container space-y-12 py-10 my-14">
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-          {/* <span className="text-5xl">👋</span> */}
           <AnimatedText
             as="h1"
             className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-5xl lg:text-6xl"
@@ -37,9 +36,14 @@ export default function TeamPage() {
           </AnimatedText>
         </div>
 
-        <div className="mx-auto grid max-w-5xl gap-8 sm:grid-cols-2">
+        <div className="mx-auto flex flex-wrap justify-center gap-8 max-w-5xl w-full">
           {teamMembers.map((member, index) => (
-            <TeamCard key={member.id} member={member} index={index} />
+            <div
+              key={member.id}
+              className="w-full sm:w-[calc(50%-1rem)] max-w-md"
+            >
+              <TeamCard member={member} index={index} />
+            </div>
           ))}
         </div>
       </AnimatedSection>

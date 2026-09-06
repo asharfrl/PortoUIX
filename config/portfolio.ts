@@ -11,16 +11,11 @@ export interface CaseStudy {
 }
 
 export const caseStudies: CaseStudy[] = [
-  // === ASPEK PENDIDIKAN ===
   {
     id: "edu-1",
-    // title: "Redesain Sistem Informasi Akademik Kampus",
-    // description:
-    //   "Merancang ulang antarmuka SIAKAD agar lebih intuitif, aksesibel, dan efisien untuk mahasiswa dan dosen. Fokus pada penyederhanaan alur pengisian KRS dan akses informasi akademik.",
-    // category: "pendidikan",
-    title: "",
+    title: "Sistem Informasi Akademik",
     description:
-      "",
+      "Perancangan ulang antarmuka portal akademik mahasiswa untuk mempermudah akses informasi perkuliahan dan penyusunan rencana studi.",
     category: "pendidikan",
     tags: ["User Research", "Wireframing", "Prototyping", "Usability Testing"],
     thumbnail: "/portfolio/placeholder-edu.png",
@@ -28,97 +23,31 @@ export const caseStudies: CaseStudy[] = [
   },
   // {
   //   id: "edu-2",
-  //   title: "Aplikasi EdTech Interaktif untuk Pembelajaran Daring",
+  //   title: "Platform Pembelajaran Digital",
   //   description:
-  //     "Mendesain pengalaman belajar daring yang engaging dengan fitur quiz interaktif, progress tracking, dan collaborative notes untuk meningkatkan retensi belajar mahasiswa.",
+  //     "Eksplorasi desain antarmuka ruang belajar digital interaktif dengan fokus pada kemudahan navigasi materi dan keterlibatan belajar.",
   //   category: "pendidikan",
-  //   tags: ["Design Thinking", "UI Design", "Gamification", "Accessibility"],
+  //   tags: ["Design Thinking", "UI Design", "Information Architecture"],
   //   thumbnail: "/portfolio/placeholder-edu.png",
   //   status: "Planning",
   // },
-  // {
-  //   id: "edu-3",
-  //   title: "Platform E-Learning Aksesibel untuk Difabel",
-  //   description:
-  //     "Merancang platform belajar online yang inklusif dengan dukungan screen reader, high contrast mode, dan navigasi keyboard-friendly sesuai standar WCAG 2.1.",
-  //   category: "pendidikan",
-  //   tags: [
-  //     "Accessibility",
-  //     "Inclusive Design",
-  //     "WCAG 2.1",
-  //     "User Interview",
-  //   ],
-  //   thumbnail: "/portfolio/placeholder-edu.png",
-  //   status: "Planning",
-  // },
-  // {
-  //   id: "edu-4",
-  //   title: "Redesain Portal Perpustakaan Digital",
-  //   description:
-  //     "Menyederhanakan proses pencarian dan peminjaman buku digital dengan pendekatan information architecture yang terstruktur dan search UX yang optimal.",
-  //   category: "pendidikan",
-  //   tags: [
-  //     "Information Architecture",
-  //     "Search UX",
-  //     "Card Sorting",
-  //     "Heuristic Evaluation",
-  //   ],
-  //   thumbnail: "/portfolio/placeholder-edu.png",
-  //   status: "Planning",
-  // },
-
-  // === ASPEK INDUSTRI ===
   {
     id: "ind-1",
-    // title: "Dashboard SaaS B2B Analytics",
-    // description:
-    //   "Merancang dashboard analitik untuk platform SaaS B2B dengan visualisasi data yang jelas, filtering yang powerful, dan pengalaman onboarding yang smooth untuk pengguna bisnis.",
-    // category: "industri",
-    title: "",
+    title: "Dashboard Analitik Bisnis",
     description:
-      "",
+      "Perancangan dashboard analitik data modern dengan visualisasi metrik bisnis yang terstruktur dan mudah dipahami oleh stakeholder.",
     category: "industri",
-    tags: [
-      "Dashboard Design",
-      "Data Visualization",
-      "SaaS",
-      "Design System",
-    ],
+    tags: ["Dashboard Design", "Data Visualization", "Design System"],
     thumbnail: "/portfolio/placeholder-ind.png",
     status: "In Progress",
   },
   // {
   //   id: "ind-2",
-  //   title: "E-commerce Checkout Flow Optimization",
+  //   title: "Alur Transaksi E-Commerce",
   //   description:
-  //     "Mengoptimalkan alur checkout e-commerce untuk mengurangi cart abandonment rate. Meliputi redesain form pembayaran, progress indicator, dan trust signals.",
+  //     "Optimasi alur transaksi dan checkout pada platform perdagangan elektronik untuk menciptakan pengalaman belanja yang mulus dan terpercaya.",
   //   category: "industri",
-  //   tags: [
-  //     "Conversion Optimization",
-  //     "A/B Testing",
-  //     "Checkout UX",
-  //     "E-commerce",
-  //   ],
-  //   thumbnail: "/portfolio/placeholder-ind.png",
-  //   status: "Planning",
-  // },
-  // {
-  //   id: "ind-3",
-  //   title: "FinTech Mobile Banking UX Redesign",
-  //   description:
-  //     "Redesain pengalaman mobile banking untuk generasi milenial dan Gen Z dengan fokus pada kemudahan transfer, visualisasi pengeluaran, dan fitur budgeting yang intuitif.",
-  //   category: "industri",
-  //   tags: ["Mobile UX", "FinTech", "Persona Development", "Journey Mapping"],
-  //   thumbnail: "/portfolio/placeholder-ind.png",
-  //   status: "Planning",
-  // },
-  // {
-  //   id: "ind-4",
-  //   title: "Healthcare Appointment Booking System",
-  //   description:
-  //     "Mendesain sistem booking janji temu dokter online yang memprioritaskan kecepatan, kejelasan informasi, dan pengalaman yang menenangkan bagi pasien.",
-  //   category: "industri",
-  //   tags: ["Healthcare UX", "Service Design", "Empathy Mapping", "Prototype"],
+  //   tags: ["Interaction Design", "User Flow", "Mobile First"],
   //   thumbnail: "/portfolio/placeholder-ind.png",
   //   status: "Planning",
   // },

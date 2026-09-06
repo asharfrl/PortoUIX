@@ -20,17 +20,19 @@ export default function PortfolioIndustriPage() {
   return (
     <ClientPageWrapper>
       <AnimatedSection direction="up" className="container space-y-12 py-10 my-14">
-        {/* Header */}
         <PortfolioHeader
           title={pagesConfig.portfolioIndustri.title}
           description={pagesConfig.portfolioIndustri.description}
-          icon=""
         />
 
-        {/* Case Studies Grid */}
-        <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto flex flex-wrap justify-center gap-6 max-w-6xl w-full">
           {industryCaseStudies.map((study, index) => (
-            <CaseStudyCard key={study.id} study={study} index={index} />
+            <div
+              key={study.id}
+              className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] max-w-md"
+            >
+              <CaseStudyCard study={study} index={index} />
+            </div>
           ))}
         </div>
       </AnimatedSection>

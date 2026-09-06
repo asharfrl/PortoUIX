@@ -26,14 +26,11 @@ export const metadata: Metadata = {
 export default function IndexPage() {
   return (
     <ClientPageWrapper>
-      <section className="space-y-6 pb-8 pt-6 mb-0 md:pb-12 md:py-20 lg:py-32 h-screen flex items-center">
-        <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center -mt-20">
-          {/* <AnimatedText delay={0.1}>
-            <div className="flex h-24 w-24 items-center justify-center rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-primary/10 to-primary/5 mb-4">
-              <span className="text-4xl">✨</span>
-            </div>
-          </AnimatedText> */}
-
+      <section
+        id="beranda"
+        className="space-y-6 pb-8 pt-6 mb-0 md:pb-12 md:py-20 lg:py-32 min-h-[calc(100vh-4rem)] flex items-center scroll-mt-20"
+      >
+        <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
           <AnimatedText
             as="h1"
             delay={0.2}
@@ -49,9 +46,6 @@ export default function IndexPage() {
             {siteConfig.course} — {siteConfig.semester}
           </AnimatedText>
           <div className="mt-4 max-w-[42rem] text-center">
-            {/* <p className="leading-normal text-muted-foreground text-sm sm:text-base">
-              Crafting intuitive digital experiences bridging the gap between educational needs and industrial standards.
-            </p> */}
             <p className="leading-normal text-muted-foreground text-sm sm:text-base">
               Menciptakan pengalaman digital intuitif yang menjembatani kesenjangan antara kebutuhan pendidikan dan standar industri.
             </p>
@@ -60,47 +54,43 @@ export default function IndexPage() {
           <div className="flex flex-col mt-10 items-center justify-center sm:flex-row sm:space-x-4 gap-3">
             <AnimatedText delay={0.6}>
               <Link
-                href="/portfolio/pendidikan"
+                href="#pendidikan"
                 className={cn(buttonVariants({ size: "lg" }))}
               >
-                 Jelajahi Pendidikan
+                Jelajahi Pendidikan
               </Link>
             </AnimatedText>
             <AnimatedText delay={0.8}>
               <Link
-                href="/portfolio/industri"
+                href="#industri"
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" })
                 )}
               >
-                 Jelajahi Industri
+                Jelajahi Industri
               </Link>
             </AnimatedText>
           </div>
           <AnimatedText delay={1.2}>
-            <Icons.chevronDown className="h-6 w-6 mt-10" />
+            <Link href="#industri" aria-label="Scroll to Industry Sector">
+              <Icons.chevronDown className="h-6 w-6 mt-10 animate-bounce text-muted-foreground transition-colors hover:text-foreground" />
+            </Link>
           </AnimatedText>
         </div>
       </section>
 
       <AnimatedSection
+        id="industri"
         direction="up"
-        className="container space-y-6 py-10 my-14"
+        className="container space-y-6 py-10 my-14 scroll-mt-20"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
           <AnimatedText
             as="h2"
             className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
           >
-            Industry Sector
+            Sektor Industri
           </AnimatedText>
-          {/* <AnimatedText
-            as="p"
-            delay={0.2}
-            className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
-          >
-            Creating scalable and conversion-optimized interfaces for modern businesses.
-          </AnimatedText> */}
           <AnimatedText
             as="p"
             delay={0.2}
@@ -109,26 +99,28 @@ export default function IndexPage() {
             Case study UI/UX di bidang industri solusi desain untuk kebutuhan bisnis dan teknologi.
           </AnimatedText>
         </div>
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2">
+
+        <div className="mx-auto flex flex-wrap justify-center gap-6 max-w-5xl w-full">
           {industryCaseStudies.slice(0, 2).map((study) => (
             <div
               key={study.id}
-              className="rounded-xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
+              className="w-full sm:w-[calc(50%-0.75rem)] max-w-lg rounded-2xl border border-border bg-card p-6 transition-all hover:shadow-md"
             >
-              <div className="mb-3 h-32 w-full rounded-lg bg-gradient-to-br from-violet-500/20 via-purple-500/10 to-fuchsia-500/20 dark:from-violet-500/10 dark:via-purple-500/5 dark:to-fuchsia-500/10 flex items-center justify-center">
-                <span className="text-muted-foreground/30 text-sm font-medium">
-                  {study.title} In Progress
+              <div className="mb-3 h-36 w-full rounded-xl bg-gradient-to-br from-violet-500/20 via-purple-500/10 to-fuchsia-500/20 dark:from-violet-500/10 dark:via-purple-500/5 dark:to-fuchsia-500/10 flex items-center justify-center">
+                <span className="text-muted-foreground/40 text-sm font-medium">
+                  {study.title ? `${study.title} — Dalam Proses` : "Pratinjau Studi Kasus"}
                 </span>
               </div>
-              <h3 className="font-heading text-base font-semibold">
-                {study.title}
+              <h3 className="font-heading text-base sm:text-lg font-semibold">
+                {study.title || "Studi Kasus Industri"}
               </h3>
               <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-                {study.description}
+                {study.description || "Eksplorasi desain antarmuka dan pengalaman pengguna untuk produk digital industri."}
               </p>
             </div>
           ))}
         </div>
+
         <AnimatedText delay={0.4} className="flex justify-center">
           <Link
             href="/portfolio/industri"
@@ -143,23 +135,17 @@ export default function IndexPage() {
       </AnimatedSection>
 
       <AnimatedSection
+        id="pendidikan"
         direction="up"
-        className="container space-y-6 bg-muted py-10 my-14"
+        className="container space-y-6 bg-muted/60 py-10 my-14 rounded-3xl scroll-mt-20"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
           <AnimatedText
             as="h2"
             className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
           >
-            Education Sector
+            Sektor Pendidikan
           </AnimatedText>
-          {/* <AnimatedText
-            as="p"
-            delay={0.2}
-            className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
-          >
-            Designing accessible and engaging platforms to elevate learning experiences.
-          </AnimatedText> */}
           <AnimatedText
             as="p"
             delay={0.2}
@@ -168,26 +154,28 @@ export default function IndexPage() {
             Case study UI/UX di bidang pendidikan merancang pengalaman belajar yang lebih baik.
           </AnimatedText>
         </div>
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2">
+
+        <div className="mx-auto flex flex-wrap justify-center gap-6 max-w-5xl w-full">
           {educationCaseStudies.slice(0, 2).map((study) => (
             <div
               key={study.id}
-              className="rounded-xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
+              className="w-full sm:w-[calc(50%-0.75rem)] max-w-lg rounded-2xl border border-border bg-card p-6 transition-all hover:shadow-md"
             >
-              <div className="mb-3 h-32 w-full rounded-lg bg-gradient-to-br from-emerald-500/20 via-teal-500/10 to-cyan-500/20 dark:from-emerald-500/10 dark:via-teal-500/5 dark:to-cyan-500/10 flex items-center justify-center">
-                <span className="text-muted-foreground/30 text-sm font-medium">
-                  {study.title} In Progress
+              <div className="mb-3 h-36 w-full rounded-xl bg-gradient-to-br from-emerald-500/20 via-teal-500/10 to-cyan-500/20 dark:from-emerald-500/10 dark:via-teal-500/5 dark:to-cyan-500/10 flex items-center justify-center">
+                <span className="text-muted-foreground/40 text-sm font-medium">
+                  {study.title ? `${study.title} — Dalam Proses` : "Pratinjau Studi Kasus"}
                 </span>
               </div>
-              <h3 className="font-heading text-base font-semibold">
-                {study.title}
+              <h3 className="font-heading text-base sm:text-lg font-semibold">
+                {study.title || "Studi Kasus Pendidikan"}
               </h3>
               <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-                {study.description}
+                {study.description || "Eksplorasi desain antarmuka dan pengalaman pengguna untuk platform pendidikan."}
               </p>
             </div>
           ))}
         </div>
+
         <AnimatedText delay={0.4} className="flex justify-center">
           <Link
             href="/portfolio/pendidikan"
@@ -202,23 +190,17 @@ export default function IndexPage() {
       </AnimatedSection>
 
       <AnimatedSection
+        id="tim"
         direction="up"
-        className="container space-y-6 bg-muted py-10 my-14"
+        className="container space-y-6 py-10 my-14 scroll-mt-20"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
           <AnimatedText
             as="h2"
             className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
           >
-            Behind the Designs
+            Tim Desainer
           </AnimatedText>
-          {/* <AnimatedText
-            as="p"
-            delay={0.2}
-            className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
-          >
-            Meet the researchers, strategists, and designers driving these experiences.
-          </AnimatedText> */}
           <AnimatedText
             as="p"
             delay={0.2}
@@ -227,7 +209,8 @@ export default function IndexPage() {
             Kenali para desainer yang menggerakkan pengalaman-pengalaman ini.
           </AnimatedText>
         </div>
-        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
+
+        <div className="mx-auto flex flex-wrap justify-center gap-4 max-w-4xl w-full">
           {teamMembers.map((member) => {
             const initials = member.name
               .split(" ")
@@ -238,7 +221,7 @@ export default function IndexPage() {
             return (
               <div
                 key={member.id}
-                className="flex flex-col items-center gap-2 rounded-xl border border-border bg-card p-4 text-center"
+                className="flex w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)] min-w-[150px] max-w-[200px] flex-col items-center gap-2 rounded-2xl border border-border bg-card p-4 text-center transition-all hover:shadow-md"
               >
                 <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary/20 bg-gradient-to-br from-primary/10 to-primary/5">
                   <span className="font-heading text-lg font-bold text-primary">
@@ -255,6 +238,7 @@ export default function IndexPage() {
             );
           })}
         </div>
+
         <AnimatedText delay={0.4} className="flex justify-center">
           <Link
             href="/team"

@@ -3,7 +3,7 @@ import { AnimatedText } from "@/components/common/animated-text";
 interface PortfolioHeaderProps {
   title: string;
   description: string;
-  icon: string;
+  icon?: string;
 }
 
 export default function PortfolioHeader({
@@ -13,7 +13,7 @@ export default function PortfolioHeader({
 }: PortfolioHeaderProps) {
   return (
     <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-      <span className="text-5xl">{icon}</span>
+      {icon ? <span className="text-5xl">{icon}</span> : null}
       <AnimatedText
         as="h1"
         className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-5xl lg:text-6xl"

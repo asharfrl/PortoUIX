@@ -14,7 +14,6 @@ interface TeamCardProps {
 }
 
 export default function TeamCard({ member, index }: TeamCardProps) {
-  // Generate initials from the name
   const initials = member.name
     .split(" ")
     .map((n) => n[0])
@@ -28,7 +27,7 @@ export default function TeamCard({ member, index }: TeamCardProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 * index }}
       whileHover={{ y: -4 }}
-      className="group relative flex flex-col items-center rounded-2xl border border-border bg-card p-8 text-center shadow-sm transition-shadow hover:shadow-lg"
+      className="group relative flex flex-col items-center rounded-2xl border border-border bg-card p-8 text-center shadow-sm transition-shadow hover:shadow-lg w-full h-full"
     >
       <div className="relative mb-6">
         <div className="flex h-28 w-28 items-center justify-center rounded-full border-4 border-primary/20 bg-gradient-to-br from-primary/10 to-primary/5">

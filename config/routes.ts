@@ -16,5 +16,9 @@ export const routesConfig: any = {
       title: "Profil Tim",
       href: "#tim",
     },
+    {
+      title: "Kontak",
+      href: "#kontak",
+    },
   ],
 };

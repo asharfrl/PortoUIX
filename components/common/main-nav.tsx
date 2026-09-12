@@ -11,6 +11,7 @@ import { MobileNav } from "@/components/common/mobile-nav";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/providers/language-provider";
 
 interface MainNavProps {
   items?: any[];
@@ -41,10 +42,20 @@ export function MainNav({ items, children }: MainNavProps) {
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const { t } = useLanguage();
 
   React.useEffect(() => {
     setShowMobileMenu(false);
   }, [pathname]);
+
+  const getTitle = (href: string, fallback: string) => {
+    if (href === "#beranda") return t.nav.home;
+    if (href === "#industri") return t.nav.industry;
+    if (href === "#pendidikan") return t.nav.education;
+    if (href === "#tim") return t.nav.team;
+    if (href === "#kontak") return t.nav.contact;
+    return fallback;
+  };
 
   const handleAnchorClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -100,7 +111,7 @@ export function MainNav({ items, children }: MainNavProps) {
             )}
           >
             <Icons.chevronLeft className="h-3.5 w-3.5" />
-            <span>Beranda</span>
+            <span>{t.nav.backToHome}</span>
           </Link>
         )}
       </div>
@@ -126,7 +137,7 @@ export function MainNav({ items, children }: MainNavProps) {
                     item.disabled && "cursor-not-allowed opacity-80"
                   )}
                 >
-                  {item.title}
+                  {getTitle(item.href, item.title)}
                 </Link>
               </motion.div>
             ))}

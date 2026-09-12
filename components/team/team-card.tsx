@@ -7,6 +7,7 @@ import { Icons } from "@/components/common/icons";
 import { buttonVariants } from "@/components/ui/button";
 import { TeamMember } from "@/config/team";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/providers/language-provider";
 
 interface TeamCardProps {
   member: TeamMember;
@@ -14,12 +15,20 @@ interface TeamCardProps {
 }
 
 export default function TeamCard({ member, index }: TeamCardProps) {
+  const { t } = useLanguage();
+
   const initials = member.name
     .split(" ")
     .map((n) => n[0])
     .slice(0, 2)
     .join("")
     .toUpperCase();
+
+  const memberKey = member.id.replace("-", "") as "member1" | "member2" | "member3" | "member4";
+  const localizedData = t.teamMembers[memberKey];
+
+  const role = localizedData?.role || member.role;
+  const bio = localizedData?.bio || member.bio;
 
   return (
     <motion.div
@@ -42,10 +51,10 @@ export default function TeamCard({ member, index }: TeamCardProps) {
         {member.name}
       </h3>
       <span className="mt-1.5 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-        {member.role}
+        {role}
       </span>
       <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-        {member.bio}
+        {bio}
       </p>
 
       <div className="mt-6 flex items-center gap-3">

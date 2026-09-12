@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/common/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { LanguageProvider } from "@/providers/language-provider";
 import { ModalProvider } from "@/providers/modal-provider";
 
 const fontSans = FontSans({
@@ -76,25 +77,27 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontHeading.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          themes={[
-            "light",
-            "dark",
-            "retro",
-            "cyberpunk",
-            "paper",
-            "aurora",
-            "synthwave",
-          ]}
-        >
-          {children}
-          <Analytics />
-          <Toaster />
-          <ModalProvider />
-        </ThemeProvider>
+        <LanguageProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            themes={[
+              "light",
+              "dark",
+              "retro",
+              "cyberpunk",
+              "paper",
+              "aurora",
+              "synthwave",
+            ]}
+          >
+            {children}
+            <Analytics />
+            <Toaster />
+            <ModalProvider />
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
       {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>

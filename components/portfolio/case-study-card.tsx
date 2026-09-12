@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import { CaseStudy } from "@/config/portfolio";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/providers/language-provider";
 
 interface CaseStudyCardProps {
   study: CaseStudy;
@@ -24,6 +25,25 @@ const categoryGradients: Record<string, string> = {
 };
 
 export default function CaseStudyCard({ study, index }: CaseStudyCardProps) {
+  const { t } = useLanguage();
+
+  const title =
+    study.id === "edu-1"
+      ? t.portfolioData.edu1.title
+      : study.id === "ind-1"
+      ? t.portfolioData.ind1.title
+      : study.title || t.caseStudyCard.fallbackTitle;
+
+  const description =
+    study.id === "edu-1"
+      ? t.portfolioData.edu1.description
+      : study.id === "ind-1"
+      ? t.portfolioData.ind1.description
+      : study.description || t.caseStudyCard.fallbackDesc;
+
+  const statusLabel =
+    study.status === "In Progress" ? t.industrySection.inProgress : study.status;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -55,7 +75,7 @@ export default function CaseStudyCard({ study, index }: CaseStudyCardProps) {
               <circle cx="9" cy="9" r="2" />
               <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
             </svg>
-            <span className="text-xs font-medium">Case Study Preview</span>
+            <span className="text-xs font-medium">{t.industrySection.preview}</span>
           </div>
         </div>
 
@@ -66,17 +86,17 @@ export default function CaseStudyCard({ study, index }: CaseStudyCardProps) {
               statusColors[study.status]
             )}
           >
-            {study.status}
+            {statusLabel}
           </span>
         </div>
       </div>
 
       <div className="flex flex-1 flex-col p-6">
         <h3 className="font-heading text-lg font-semibold leading-tight group-hover:text-primary transition-colors">
-          {study.title || "Studi Kasus Desain"}
+          {title}
         </h3>
         <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-          {study.description || "Eksplorasi antarmuka dan riset pengalaman pengguna untuk kebutuhan produk digital."}
+          {description}
         </p>
 
         <div className="mt-4 flex flex-wrap gap-1.5">

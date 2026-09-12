@@ -17,22 +17,22 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useModalStore } from "@/hooks/use-modal-store";
-
-const formSchema = z.object({
-  name: z.string().min(3, {
-    message: "Name must contain at least 3 characters.",
-  }),
-  email: z.string().email("Please enter a valid email."),
-  message: z.string().min(10, {
-    message: "Please write something more descriptive.",
-  }),
-  social: z.string().url().optional().or(z.literal("")),
-});
+import { useLanguage } from "@/providers/language-provider";
 
 export function ContactForm() {
   const storeModal = useModalStore();
+  const { t } = useLanguage();
 
-  // const [open, setOpen] = useState(false);
+  const formSchema = z.object({
+    name: z.string().min(3, {
+      message: t.contactSection.valName,
+    }),
+    email: z.string().email(t.contactSection.valEmail),
+    message: z.string().min(10, {
+      message: t.contactSection.valMessage,
+    }),
+    social: z.string().url(t.contactSection.valUrl).optional().or(z.literal("")),
+  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -44,7 +44,6 @@ export function ContactForm() {
     },
   });
 
-  // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       const response = await fetch("/api/contact", {
@@ -59,9 +58,8 @@ export function ContactForm() {
 
       if (response.status === 200) {
         storeModal.onOpen({
-          title: "Thankyou!",
-          description:
-            "Your message has been received! I appreciate your contact and will get back to you shortly.",
+          title: t.contactSection.successTitle,
+          description: t.contactSection.successDesc,
           icon: Icons.successAnimated,
         });
       }
@@ -74,20 +72,17 @@ export function ContactForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 min-w-full"
+        className="space-y-6 w-full"
       >
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>{t.contactSection.nameLabel}</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your name" {...field} />
+                <Input placeholder={t.contactSection.namePlaceholder} {...field} />
               </FormControl>
-              {/* <FormDescription>
-                                This is your public display name.
-                            </FormDescription> */}
               <FormMessage />
             </FormItem>
           )}
@@ -97,9 +92,9 @@ export function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t.contactSection.emailLabel}</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your email" {...field} />
+                <Input placeholder={t.contactSection.emailPlaceholder} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -110,9 +105,13 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel>{t.contactSection.messageLabel}</FormLabel>
               <FormControl>
-                <Textarea placeholder="Enter your message" {...field} />
+                <Textarea
+                  placeholder={t.contactSection.messagePlaceholder}
+                  className="min-h-[120px]"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -123,18 +122,17 @@ export function ContactForm() {
           name="social"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Social (optional)</FormLabel>
+              <FormLabel>{t.contactSection.socialLabel}</FormLabel>
               <FormControl>
-                <Input placeholder="Link for social account" {...field} />
+                <Input placeholder={t.contactSection.socialPlaceholder} {...field} />
               </FormControl>
-              {/* <FormDescription>
-                                This is your public display name.
-                            </FormDescription> */}
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" className="w-full sm:w-auto">
+          {t.contactSection.submitButton}
+        </Button>
       </form>
     </Form>
   );

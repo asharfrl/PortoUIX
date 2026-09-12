@@ -1,12 +1,14 @@
-import { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
 
 import { AnimatedSection } from "@/components/common/animated-section";
 import { AnimatedText } from "@/components/common/animated-text";
 import { ClientPageWrapper } from "@/components/common/client-page-wrapper";
 import { Icons } from "@/components/common/icons";
+import { ContactForm } from "@/components/forms/contact-form";
+import CaseStudyCard from "@/components/portfolio/case-study-card";
 import { buttonVariants } from "@/components/ui/button";
-import { pagesConfig } from "@/config/pages";
 import { siteConfig } from "@/config/site";
 import { teamMembers } from "@/config/team";
 import {
@@ -14,16 +16,11 @@ import {
   industryCaseStudies,
 } from "@/config/portfolio";
 import { cn } from "@/lib/utils";
-
-export const metadata: Metadata = {
-  title: pagesConfig.home.metadata.title,
-  description: pagesConfig.home.metadata.description,
-  alternates: {
-    canonical: siteConfig.url,
-  },
-};
+import { useLanguage } from "@/providers/language-provider";
 
 export default function IndexPage() {
+  const { t } = useLanguage();
+
   return (
     <ClientPageWrapper>
       <section
@@ -36,18 +33,18 @@ export default function IndexPage() {
             delay={0.2}
             className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            {siteConfig.teamName}
+            {t.hero.teamName}
           </AnimatedText>
           <AnimatedText
             as="h3"
             delay={0.4}
             className="font-heading text-base sm:text-xl md:text-xl lg:text-2xl"
           >
-            {siteConfig.course} — {siteConfig.semester}
+            {t.hero.subtitle}
           </AnimatedText>
           <div className="mt-4 max-w-[42rem] text-center">
             <p className="leading-normal text-muted-foreground text-sm sm:text-base">
-              Menciptakan pengalaman digital intuitif yang menjembatani kesenjangan antara kebutuhan pendidikan dan standar industri.
+              {t.hero.description}
             </p>
           </div>
 
@@ -57,7 +54,7 @@ export default function IndexPage() {
                 href="#pendidikan"
                 className={cn(buttonVariants({ size: "lg" }))}
               >
-                Jelajahi Pendidikan
+                {t.hero.exploreEducation}
               </Link>
             </AnimatedText>
             <AnimatedText delay={0.8}>
@@ -67,7 +64,7 @@ export default function IndexPage() {
                   buttonVariants({ variant: "outline", size: "lg" })
                 )}
               >
-                Jelajahi Industri
+                {t.hero.exploreIndustry}
               </Link>
             </AnimatedText>
           </div>
@@ -89,34 +86,24 @@ export default function IndexPage() {
             as="h2"
             className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
           >
-            Sektor Industri
+            {t.industrySection.title}
           </AnimatedText>
           <AnimatedText
             as="p"
             delay={0.2}
             className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
           >
-            Case study UI/UX di bidang industri solusi desain untuk kebutuhan bisnis dan teknologi.
+            {t.industrySection.description}
           </AnimatedText>
         </div>
 
         <div className="mx-auto flex flex-wrap justify-center gap-6 max-w-5xl w-full">
-          {industryCaseStudies.slice(0, 2).map((study) => (
+          {industryCaseStudies.slice(0, 2).map((study, index) => (
             <div
               key={study.id}
-              className="w-full sm:w-[calc(50%-0.75rem)] max-w-lg rounded-2xl border border-border bg-card p-6 transition-all hover:shadow-md"
+              className="w-full sm:w-[calc(50%-0.75rem)] max-w-lg"
             >
-              <div className="mb-3 h-36 w-full rounded-xl bg-gradient-to-br from-violet-500/20 via-purple-500/10 to-fuchsia-500/20 dark:from-violet-500/10 dark:via-purple-500/5 dark:to-fuchsia-500/10 flex items-center justify-center">
-                <span className="text-muted-foreground/40 text-sm font-medium">
-                  {study.title ? `${study.title} — Dalam Proses` : "Pratinjau Studi Kasus"}
-                </span>
-              </div>
-              <h3 className="font-heading text-base sm:text-lg font-semibold">
-                {study.title || "Studi Kasus Industri"}
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-                {study.description || "Eksplorasi desain antarmuka dan pengalaman pengguna untuk produk digital industri."}
-              </p>
+              <CaseStudyCard study={study} index={index} />
             </div>
           ))}
         </div>
@@ -129,7 +116,7 @@ export default function IndexPage() {
               "rounded-xl"
             )}
           >
-            Lihat Studi Kasus Lengkap
+            {t.industrySection.viewFull}
           </Link>
         </AnimatedText>
       </AnimatedSection>
@@ -144,34 +131,24 @@ export default function IndexPage() {
             as="h2"
             className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
           >
-            Sektor Pendidikan
+            {t.educationSection.title}
           </AnimatedText>
           <AnimatedText
             as="p"
             delay={0.2}
             className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
           >
-            Case study UI/UX di bidang pendidikan merancang pengalaman belajar yang lebih baik.
+            {t.educationSection.description}
           </AnimatedText>
         </div>
 
         <div className="mx-auto flex flex-wrap justify-center gap-6 max-w-5xl w-full">
-          {educationCaseStudies.slice(0, 2).map((study) => (
+          {educationCaseStudies.slice(0, 2).map((study, index) => (
             <div
               key={study.id}
-              className="w-full sm:w-[calc(50%-0.75rem)] max-w-lg rounded-2xl border border-border bg-card p-6 transition-all hover:shadow-md"
+              className="w-full sm:w-[calc(50%-0.75rem)] max-w-lg"
             >
-              <div className="mb-3 h-36 w-full rounded-xl bg-gradient-to-br from-emerald-500/20 via-teal-500/10 to-cyan-500/20 dark:from-emerald-500/10 dark:via-teal-500/5 dark:to-cyan-500/10 flex items-center justify-center">
-                <span className="text-muted-foreground/40 text-sm font-medium">
-                  {study.title ? `${study.title} — Dalam Proses` : "Pratinjau Studi Kasus"}
-                </span>
-              </div>
-              <h3 className="font-heading text-base sm:text-lg font-semibold">
-                {study.title || "Studi Kasus Pendidikan"}
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-                {study.description || "Eksplorasi desain antarmuka dan pengalaman pengguna untuk platform pendidikan."}
-              </p>
+              <CaseStudyCard study={study} index={index} />
             </div>
           ))}
         </div>
@@ -184,7 +161,7 @@ export default function IndexPage() {
               "rounded-xl"
             )}
           >
-            Lihat Studi Kasus Lengkap
+            {t.educationSection.viewFull}
           </Link>
         </AnimatedText>
       </AnimatedSection>
@@ -199,14 +176,14 @@ export default function IndexPage() {
             as="h2"
             className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
           >
-            Tim Desainer
+            {t.teamSection.title}
           </AnimatedText>
           <AnimatedText
             as="p"
             delay={0.2}
             className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
           >
-            Kenali para desainer yang menggerakkan pengalaman-pengalaman ini.
+            {t.teamSection.description}
           </AnimatedText>
         </div>
 
@@ -218,6 +195,8 @@ export default function IndexPage() {
               .slice(0, 2)
               .join("")
               .toUpperCase();
+            const memberKey = member.id.replace("-", "") as "member1" | "member2" | "member3" | "member4";
+            const localizedMember = t.teamMembers[memberKey];
             return (
               <div
                 key={member.id}
@@ -232,7 +211,7 @@ export default function IndexPage() {
                   {member.name}
                 </h3>
                 <span className="text-[10px] sm:text-xs text-muted-foreground">
-                  {member.role}
+                  {localizedMember?.role || member.role}
                 </span>
               </div>
             );
@@ -247,9 +226,35 @@ export default function IndexPage() {
               "rounded-xl"
             )}
           >
-            Kenali Tim Kami
+            {t.teamSection.viewFull}
           </Link>
         </AnimatedText>
+      </AnimatedSection>
+
+      <AnimatedSection
+        id="kontak"
+        direction="up"
+        className="container space-y-6 bg-muted/60 py-12 my-14 rounded-3xl scroll-mt-20"
+      >
+        <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+          <AnimatedText
+            as="h2"
+            className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
+          >
+            {t.contactSection.title}
+          </AnimatedText>
+          <AnimatedText
+            as="p"
+            delay={0.2}
+            className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
+          >
+            {t.contactSection.description}
+          </AnimatedText>
+        </div>
+
+        <div className="mx-auto max-w-xl w-full rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
+          <ContactForm />
+        </div>
       </AnimatedSection>
     </ClientPageWrapper>
   );

@@ -1,3 +1,4 @@
+import { LanguageToggle } from "@/components/common/language-toggle";
 import { MainNav } from "@/components/common/main-nav";
 import { ModeToggle } from "@/components/common/mode-toggle";
 import { SiteFooter } from "@/components/common/site-footer";
@@ -13,11 +14,13 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
       <header className="fixed top-0 inset-x-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-sm transition-all duration-200">
         <div className="container flex h-16 items-center justify-between gap-4">
           <MainNav items={routesConfig.mainNav}>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              <LanguageToggle />
               <ModeToggle />
             </div>
           </MainNav>
           <div className="flex items-center gap-2">
+            <LanguageToggle />
             <ModeToggle />
           </div>
         </div>
